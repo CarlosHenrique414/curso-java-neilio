@@ -8,8 +8,11 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
-import javax.persistence.Transient;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 
 @Entity
 @Table(name = "tb_category")
@@ -21,7 +24,9 @@ public class Category implements Serializable {
 	private Long id;
 	private String name;
 	
-	@Transient
+	
+	@JsonIgnore
+	@ManyToMany(mappedBy = "categories")
 	private Set<Product> prodcts = new HashSet<>();//Implementation of Associations (instantiate collections) where I will link the class ... Product with the categories.
 	// (set serves to not let you register the product with the same category twice)
 	
