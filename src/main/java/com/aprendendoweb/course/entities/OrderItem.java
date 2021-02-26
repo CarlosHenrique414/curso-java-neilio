@@ -18,17 +18,17 @@ public class OrderItem implements Serializable {
 	private OrderItemPK id = new OrderItemPK();
 
 	private Integer quantity;
-	private Double privce;
+	private Double price;
 
 	public OrderItem() {
 	}
 
-	public OrderItem(Order order, Product product, Integer quantity, Double privce) {
+	public OrderItem(Order order, Product product, Integer quantity, Double price) {
 		super();
 		id.setOrder(order);
 		id.setProduct(product);
 		this.quantity = quantity;
-		this.privce = privce;
+		this.price = price;
 	}
 	
 	@JsonIgnore
@@ -56,14 +56,18 @@ public class OrderItem implements Serializable {
 		this.quantity = quantity;
 	}
 
-	public Double getPrivce() {
-		return privce;
+	public Double getPrice() {
+		return price;
 	}
 
-	public void setPrivce(Double privce) {
-		this.privce = privce;
+	public void setPrice(Double price) {
+		this.price = price;
 	}
-
+	
+	public Double getSubTotal() {
+		return price * quantity;
+	}
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
