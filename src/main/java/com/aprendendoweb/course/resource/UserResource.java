@@ -40,6 +40,8 @@ public class UserResource {
 		return ResponseEntity.ok().body(obj);
 	}
 	
+	//User registration, delete, Update in the database
+	
 	@PostMapping
 	public ResponseEntity<User> insert(@RequestBody User obj) {
 		obj = service.insert(obj);

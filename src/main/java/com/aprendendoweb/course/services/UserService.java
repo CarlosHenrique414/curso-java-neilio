@@ -26,6 +26,8 @@ public class UserService {
 		 return obj.get();
 	 }
 	 
+	 //User registration, delete, Update in the database
+	 
 	 public User insert(User obj) {
 		 return repository.save(obj);
 	 }
